@@ -67,6 +67,14 @@ set msg.payload parameter with the following;
 - currency
 - array
 
+modified: 
+- only valid tags is read for opcda-read when msg.payload tags is vaild.
+msg.payload = { tags: ["dev1.wendu","dev1.yali"]};
+
+- for normal read( no payload tags ), only value changed tags will ouput when data change is checked. For example,devl.wendu and devl.yali were set,only devl.wendu value changed, opcda-read will only output devl .wendu
+
+- for dynamic read ( payload tags valid ), data change check is useless , all payload tags will output.
+
 #### Screenshots
 
 ##### opcda-server
@@ -77,3 +85,6 @@ set msg.payload parameter with the following;
 
 ##### opcda-write
 ![opcda-write](https://raw.githubusercontent.com/emrebekar/node-red-contrib-opcda-client/master/images/opcda_write.png)
+
+##### msg.payload dynamic tags 
+![opcda-tags](https://raw.githubusercontent.com/emrebekar/node-red-contrib-opcda-client/master/images/opcda-tags.jpg)
